@@ -4,9 +4,13 @@
   box-sizing: border-box;
 }
 
-.page {
-  min-inline-size: 360px;
-  margin: 0;
+:root {
+  --bg-color: #F3EFEC; /*для цвета фона*/
+  /*--bg-color: #f87511; /*для цвета фона*/
+  --text-color: #312A4E; /*для цвета текста*/
+  --accent-color: #FFAB6B; /*для акцентного цвета*/
+  --main-font: Raleway, sans-serif; /*имя семейства шрифта преобладающего текста (абзацы)*/
+  --accent-font: 'STIX Two Text', sans-serif; /*шрифт для заголовков и особенных текстовых элементов*/
 }
 
 p,
@@ -20,3 +24,130 @@ li,
 figure {
   margin: 0;
 }
+
+/* a {
+  color: inherit;
+  text-decoration-line: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+} */
+
+.page {
+  min-inline-size: 360px;
+  margin: 0;
+
+  font-family: var(--main-font);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+.header {
+  padding-top: 10%;
+}
+
+.heading {
+  font-family: var(--accent-font);
+  line-height: 90%;
+  font-weight: 600;
+  text-align: center;
+  /* font-size: 120px; */
+}
+
+.content-section {
+  padding: 0 5vw;
+}
+
+.header__title {
+  font-size: clamp(3.75rem, 2.5rem + 5.5556vw, 7.5rem);
+  margin-bottom: 40px;
+}
+
+.content__title {
+  font-size: 30px;
+  margin-top: 7%;
+  margin-bottom: 2.5%;
+}
+
+.content__text-block {
+  font-size: 18px;
+}
+
+.content__text-block .content__paragraph:not(:last-child) {
+  margin-bottom: 1.5em;
+}
+
+.content__text-block a {
+  color: inherit;
+  text-decoration-line: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+
+.content__text-block_type_first-lettered > .content__paragraph:first-child::first-letter{
+  background-color: var(--accent-color);
+  display: inline-block;
+  font-size: 30px;
+  font-weight: 700;
+  padding: 0 4px;
+  margin-right: 3px;
+}
+
+
+.content__figure {
+  margin: 0 7%;
+  width: calc(100% + 10vw);
+  position: relative;
+  left: -5vw;
+
+}
+.content__picture {
+  width: 100%;
+}
+.content__picture-caption {
+
+}
+
+
+.content__blockquote {
+  display: block;
+  width: 75%;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 200%;
+  margin: 0 auto 1.5em;
+}
+
+.content__list {
+  list-style: none;
+  /* padding-inline-start: 60px; */
+}
+
+.content__list-item {
+  position: relative;
+}
+
+.content__list-item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.content__list-item::before {
+  display: block;
+  content: "";
+  width: 15px;
+  height: 15px;
+  background-image: url('../images/marker-light.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top: 15%;
+  left: -2%;
+  transform: translate(-15%, 2%);
+}
+
+
