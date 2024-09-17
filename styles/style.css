@@ -6,7 +6,6 @@
 
 :root {
   --bg-color: #F3EFEC; /*для цвета фона*/
-  /*--bg-color: #f87511; /*для цвета фона*/
   --text-color: #312A4E; /*для цвета текста*/
   --accent-color: #FFAB6B; /*для акцентного цвета*/
   --main-font: Raleway, sans-serif; /*имя семейства шрифта преобладающего текста (абзацы)*/
@@ -25,14 +24,17 @@ figure {
   margin: 0;
 }
 
-a:focus, button:focus, a:focus-visible, button:focus-visible {
+a:focus, button:focus {
+  outline: none;
+}
+
+a:focus-visible, button:focus-visible {
   outline: 1px solid currentColor;
 }
 
 button:disabled {
   pointer-events: none;
 }
-
 
 .page {
   min-inline-size: 360px;
@@ -77,7 +79,6 @@ button:disabled {
   border-bottom: 1px solid currentColor;
 }
 
-
 .header__theme-toggler {
   list-style: none;
   display: flex;
@@ -95,9 +96,10 @@ button:disabled {
   cursor: pointer;
   margin: 26px 0;
   background-color: inherit;
+  position: relative;
 }
 
-.header__theme-button:focus {
+.header__theme-button:focus-visible {
   outline: 1px solid currentColor;
 }
 
@@ -105,18 +107,8 @@ button:disabled {
   border-bottom: 1px solid currentColor;
 }
 
-.header__theme-button_type_dark {
-
-}
-
-.header__theme-button_type_light {
-
-}
-
 .header__theme-button_is-active {
   font-weight: 700;
-  font-size: 18px;
-  position: relative;
 }
 
 .header__theme-button_is-active::after {
@@ -126,14 +118,16 @@ button:disabled {
   height: .4em;
   background-color: var(--accent-color);
   position: absolute;
-  bottom: calc(20px + .5em);
-  bottom: .19em;
+  bottom: .10em;
   right: -.2vw;
   z-index: -1;
-
 }
 
-
+.theme_dark .header__theme-button_is-active::after {
+  background-image: url(../images//pattern.svg);
+  background-repeat: repeat;
+  background-position: bottom;
+}
 
 .content__title {
   font-size: 30px;
@@ -179,6 +173,8 @@ button:disabled {
 }
 .content__picture {
   width: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 .content__picture-caption {
   font-size: 18px;
@@ -186,7 +182,6 @@ button:disabled {
   border-bottom: 1px solid var(--text-color);
   padding: 20px 0;
 }
-
 
 .content__blockquote {
   display: block;
@@ -207,7 +202,6 @@ button:disabled {
   align-items: center;
   margin-top: 7%;
   outline: 1px solid currentColor;
-
 }
 
 .content__card-title {
@@ -231,6 +225,12 @@ button:disabled {
   z-index: -1;
 }
 
+.theme_dark .colored-text::after {
+  background-image: url(../images//pattern.svg);
+  background-repeat: repeat;
+  background-position: bottom;
+}
+
 .content__card-subtitle {
   font-size: 18px;
   font-weight: 400;
@@ -238,7 +238,7 @@ button:disabled {
 
 .content__list {
   list-style: none;
-  /* padding-inline-start: 60px; */
+  padding-inline-start: 40px;
 }
 
 .content__list-item {
